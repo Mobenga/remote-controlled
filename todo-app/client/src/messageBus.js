@@ -12,8 +12,8 @@ function subscribe(cb) {
     };
 }
 
-function send(name, value) {
+function publish(name, value) {
     subscribers.forEach(cb => cb(name, value));
 }
 
-export {subscribe, send};
+export {subscribe, publish};

@@ -15,7 +15,10 @@
         "browser": true,
         "builtin": true
     },
-    "globals": {},
+    "globals": {
+        SockJS: false,
+        Stomp: false
+    },
     "rules": {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
