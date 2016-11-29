@@ -1,31 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {subscribe} from "./messageBus.js";
-import App from "./components/App.jsx";
+import {subscribe} from "./messageBus";
+import App from "./components/App";
 
 let list = [
-    {checked: false, text:"Fix all TODO:s", index: 0},
-    {checked: true, text: "Write tests", index: 1},
-    {checked: false, text: "Write README.md", index: 2}
+    {checked: false, text:`Fix all TODO:s`, index: 0},
+    {checked: true, text: `Write tests`, index: 1},
+    {checked: false, text: `Write README.md`, index: 2},
 ];
 
 
-ReactDOM.render(<App list={list}/>, document.getElementById("root"));
-
+render();
 
 subscribe((name, value) => {
     switch (name) {
-        case "DELETE": 
+        case `DELETE`: 
             deleteItem(value);
             break;
-        case "TOGGLE":
+        case `TOGGLE`:
             toggleItem(value);
             break;
-        case "ADD":
+        case `ADD`:
             addItem(value);
             break;
         default:
-            console.error("Unknown command", name);
+            console.error(`Unknown command`, name);
             break;
     }
 });
@@ -53,12 +52,12 @@ function addItem(text) {
     list.push({
         checked: false,
         text,
-        index
+        index,
     });
     render();
 }
 
 function render() {
-    ReactDOM.render(<App list={list}/>, document.getElementById("root"));
+    ReactDOM.render(<App list={list}/>, document.getElementById(`root`));
 }
 

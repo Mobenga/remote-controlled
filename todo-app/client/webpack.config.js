@@ -8,9 +8,16 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
+        preLoaders: [
+            {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              loader: 'eslint-loader'
+            }
+        ],
         loaders: [
             {
-                test: /.jsx?$/,
+                test: /.js$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
                 query: {
@@ -18,7 +25,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    devtool: "source-map"
 };
         
 

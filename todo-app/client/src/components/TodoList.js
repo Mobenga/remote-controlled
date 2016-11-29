@@ -1,7 +1,7 @@
 import React from "react";
 
-import ListItem from "./ListItem.jsx";
-import AddItem from "./AddItem.jsx";
+import ListItem from "./ListItem";
+import AddItem from "./AddItem";
 
 class TodoList extends React.Component {
     render() {
@@ -10,7 +10,7 @@ class TodoList extends React.Component {
                 {this.props.list.map(data => <ListItem key={data.index} data={data}/>)}
                 <AddItem/>
             </div>
-        )
+        );
     }
 }
 

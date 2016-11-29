@@ -1,42 +1,41 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import {send} from "../messageBus";
 
 const textStyle = {
-    cursor: "pointer"
-}
+    cursor: `pointer`,
+};
 
 const deleteIconStyle = {
-    cursor: "pointer"
-}
+    cursor: `pointer`,
+};
 
 const checkboxStyle = {
     width: 30,
-    display: "inline-block"
-}
+    display: `inline-block`,
+};
 
 class ListItem extends React.Component {
     constructor() {
         super();
         this.state = {
-            hover: false
+            hover: false,
         };
     }
     mouseEnter() {
         this.setState({
-            hover: true
+            hover: true,
         });
     }
     mouseLeave() {
         this.setState({
-            hover: false
+            hover: false,
         });
     }
     toggleChecked() {
-        send("TOGGLE", this.props.data.index);
+        send(`TOGGLE`, this.props.data.index);
     }
     deleteItem() {
-        send("DELETE", this.props.data.index);
+        send(`DELETE`, this.props.data.index);
     }
     renderCheckbox() {
         if (this.props.data.checked) {
@@ -49,7 +48,7 @@ class ListItem extends React.Component {
         return <span
                 style={deleteIconStyle}
                 onClick={this.deleteItem.bind(this)}
-                className="glyphicon glyphicon-ban-circle"/>
+                className="glyphicon glyphicon-ban-circle"/>;
     }
     render() {
         return (
@@ -63,9 +62,8 @@ class ListItem extends React.Component {
                 </div>
                
             </div>
-        )
+        );
     }
 }
 
 export default ListItem;
-

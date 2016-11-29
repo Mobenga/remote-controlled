@@ -3,36 +3,36 @@ import {send} from "../messageBus";
 
 const style = {
     fontSize: 16,
-    marginTop: 15
-}
+    marginTop: 15,
+};
 
 const inputStyle = {
-    marginLeft: 30
-}
-const buttonStyle = {
-    marginLeft: 10
-}
+    marginLeft: 30,
+};
 
+const buttonStyle = {
+    marginLeft: 10,
+};
 
 class AddItem extends React.Component {
     constructor() {
         super();
         this.state = {
-            text: ""
+            text: ``,
         };
     }
     addItem() {
         if (!this.state.text) {
             return;
         }
-        send("ADD", this.state.text);
+        send(`ADD`, this.state.text);
         this.setState({
-            text: ""
+            text: ``,
         });
     }
     inputChanged(e) {
         this.setState({
-            text: e.target.value
+            text: e.target.value,
         });
     }
     keyUp(e) {
@@ -48,7 +48,7 @@ class AddItem extends React.Component {
                     <button style={buttonStyle} disabled={!this.state.text} onClick={this.addItem.bind(this)}>Add item</button>
                 </div>
             </div>
-        )
+        );
     }
 }
 

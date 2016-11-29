@@ -8,7 +8,7 @@ function subscribe(cb) {
             if (index >= 0) {
                 subscribers.splice(index, 1);
             }
-        }
+        },
     };
 }
 

@@ -1,35 +1,37 @@
 {
-    "name": "foocafe",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "watch": "node_modules/webpack/bin/webpack.js --progress --colors --watch",
-        "build": "node_modules/webpack/bin/webpack.js",
-
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mojir/foocafe.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/mojir/foocafe/issues"
-    },
-    "homepage": "https://github.com/mojir/foocafe#readme",
-    "dependencies": {
-        "react": "^15.4.1",
-        "react-dom": "^15.4.1"
-    },
-    "devDependencies": {
-        "babel-core": "^6.18.2",
-        "babel-loader": "^6.2.8",
-        "babel-preset-es2015": "^6.18.0",
-        "babel-preset-react": "^6.16.0",
-        "webpack": "^1.13.3",
-        "webpack-dev-server": "^1.16.2"
-    }
+  "name": "todo-app-client",
+  "version": "1.0.0",
+  "description": "A TODO list in React",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node_modules/webpack/bin/webpack.js --progress --colors --watch",
+    "build": "node_modules/webpack/bin/webpack.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojir/foocafe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mojir/foocafe/issues"
+  },
+  "homepage": "https://github.com/mojir/foocafe#readme",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.11.1",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-react": "^6.7.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
 }
