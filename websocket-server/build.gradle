@@ -9,11 +9,11 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'websocket-spring-example'
-    version = '0.1.0'
+    baseName = 'websocket-server'
+    version = '1.0'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,8 +30,5 @@ dependencies {
     compile("org.webjars:bootstrap:3.3.7")
     compile("org.webjars:jquery:3.1.0")
     compile("org.springframework.boot:spring-boot-devtools")
-
-
-    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 

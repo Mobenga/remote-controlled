@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  todo:
+    image: todo-app
+    ports:
+     - 4000:4000
+
+  websocket-server:
+    image: websocket-server
+    ports:
+     - 8080:8080
+
