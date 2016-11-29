@@ -1,4 +1,4 @@
-package hello;
+package playtech;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
