@@ -6,9 +6,10 @@ services:
     ports:
       - 8080:4000
 
-
   websocket-server:
     image: websocket-server
+    depends_on:
+      - redis
     ports:
       - 8090:8080
 
@@ -16,3 +17,15 @@ services:
     image: redis
     ports:
      - 6379:6379
+
+
+  remote-control-server:
+    image: remote-control-server
+    depends_on:
+      - redis
+    ports:
+      - 8100:8100
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+

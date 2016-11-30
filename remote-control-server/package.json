@@ -1,0 +1,30 @@
+{
+  "name": "remote-control-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "npm install && npm run mocha && npm run lint",
+    "start": "node src/app.js",
+    "clean": "rm -rf node_modules",
+    "build": "npm run clean && npm install --production",
+    "mocha": "node_modules/mocha/bin/mocha `find . -name \"*spec.js\" -not -path \"*node_modules*\"`",
+    "lint": "node_modules/jshint/bin/jshint `find . -name \"*.js\" -not -path \"*node_modules*\"`"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "redis": "^2.6.2",
+    "uuid": "^2.0.3",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jshint": "^2.9.4",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
+  }
+}
