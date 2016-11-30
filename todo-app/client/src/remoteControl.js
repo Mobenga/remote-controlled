@@ -16,13 +16,13 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, () => {
         setConnected(true);
-        stompClient.subscribe(`/register`, callback);
+        stompClient.subscribe(`/user/register`, callback);
     });
 }
 
 function callback(data) {
-    data = JSON.parse(data);
-    if (data.command === `GET-LIST`) {
+    data = JSON.parse(data.body);
+    if (data.command === `LIST`) {
         const list = getTodoList();
         send({
             messageId: data.messageId,
