@@ -17,6 +17,8 @@ services:
       - redis
     ports:
       - 8090:8080
+    environment:
+      REDIS_HOST: redis:6379
 
   redis:
     image: redis
