@@ -1,4 +1,5 @@
 import {publish} from "./messageBus";
+import {get as getTodoList} from "./todoList";
 
 let stompClient = null;
 
@@ -21,12 +22,24 @@ function connect() {
 
 function callback(data) {
     data = JSON.parse(data);
-    publish(data.command, data.value);
-    send({status: `OK`});
+    if (data.command === `GET-LIST`) {
+        const list = getTodoList();
+        send({
+            messageId: data.messageId,
+            status: `OK`,
+            list,
+        });
+    } else {
+        publish(data.command, data.value);
+        send({
+            messageId: data.messageId,
+            status: `OK`,
+        });
+    }
 }
 
 function send(data) {
-    console.log(`/message`, {}, JSON.stringify(data));
+    stompClient.send(`/send`, {}, JSON.stringify(data));
 }
 
 export {connect, send};

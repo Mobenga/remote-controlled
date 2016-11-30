@@ -6,11 +6,7 @@ import {connect} from "./remoteControl";
 
 window.publish = publish;
 
-let list = [
-    {checked: false, text:`Fix all TODO:s`, index: 0},
-    {checked: true, text: `Write tests`, index: 1},
-    {checked: false, text: `Write README.md`, index: 2},
-];
+import * as todoList from "./todoList";
 
 let isConnected = false;
 
@@ -20,19 +16,24 @@ connect();
 subscribe((name, value) => {
     switch (name) {
         case `DELETE`: 
-            deleteItem(value);
+            todoList.deleteItem(value);
+            render();
             break;
         case `TOGGLE`:
-            toggleItem(value);
+            todoList.toggleItem(value);
+            render();
             break;
         case `ADD`:
-            addItem(value);
+            todoList.addItem(value);
+            render();
             break;
         case `CONNECTED`:
-            setConnected(true);
+            isConnected = true;
+            render();
             break;
         case `DISCONNECTED`:
-            setConnected(false);
+            isConnected = false;
+            render();
             break;
         default:
             console.error(`Unknown command`, name);
@@ -40,40 +41,8 @@ subscribe((name, value) => {
     }
 });
 
-function setConnected(value) {
-    isConnected = value;
-    render();
-}
-
-function deleteItem(index) {
-    list = list.filter(item => item.index !== index);
-    render();
-}
-
-function toggleItem(index) {
-    const item = list.filter(item => item.index === index)[0];
-    if (item) {
-        item.checked = !item.checked;
-        render();
-    }
-}
-
-function addItem(text) {
-    let index;
-    if (list.length === 0) {
-        index = 0;
-    } else {
-        index = list[list.length - 1].index + 1;
-    }
-    list.push({
-        checked: false,
-        text,
-        index,
-    });
-    render();
-}
 
 function render() {
-    ReactDOM.render(<App list={list} isConnected={isConnected}/>, document.getElementById(`root`));
+    ReactDOM.render(<App list={todoList.get()} isConnected={isConnected}/>, document.getElementById(`root`));
 }
 
