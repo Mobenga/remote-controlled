@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {subscribe, publish} from "./messageBus";
+import {subscribe} from "./messageBus";
 import App from "./components/App";
 import {connect} from "./remoteControl";
-
-window.publish = publish;
 
 import * as todoList from "./todoList";
 

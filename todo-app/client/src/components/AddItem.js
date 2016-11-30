@@ -44,8 +44,16 @@ class AddItem extends React.Component {
         return (
             <div style={style} className="row">
                 <div className="col-xs-12">
-                    <input size="18" onKeyUp={this.keyUp.bind(this)} onInput={this.inputChanged.bind(this)} value={this.state.text} style={inputStyle}></input>
-                    <button style={buttonStyle} disabled={!this.state.text} onClick={this.addItem.bind(this)}>Add item</button>
+                    <input
+                        size="18"
+                        onKeyUp={this.keyUp.bind(this)}
+                        onInput={this.inputChanged.bind(this)}
+                        value={this.state.text}
+                        style={inputStyle}></input>
+                    <button
+                        style={buttonStyle}
+                        disabled={!this.state.text}
+                        onClick={this.addItem.bind(this)}>Add item</button>
                 </div>
             </div>
         );

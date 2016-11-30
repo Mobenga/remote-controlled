@@ -22,7 +22,7 @@ class App extends React.Component {
                 <nav className="navbar navbar-default navbar-static-top">
                     <div className="container">
                         <div className="navbar-header">
-                            <span className="navbar-brand">Project name</span>
+                            <span className="navbar-brand">TODO</span>
                         </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li>{this.renderConnectedSymbol()}</li>

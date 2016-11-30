@@ -43,3 +43,5 @@ classes
 gradle
 gradlew
 gradlew.bat
+
+.eslintrc

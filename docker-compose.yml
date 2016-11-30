@@ -6,6 +6,11 @@ services:
     ports:
       - 8080:4000
 
+  remote-control-app:
+    image: remote-control-app
+    ports:
+      - 8110:4000
+
   websocket-server:
     image: websocket-server
     depends_on:

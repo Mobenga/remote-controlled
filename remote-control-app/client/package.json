@@ -1,7 +1,7 @@
 {
-    "name": "todo-app-client",
+    "name": "remote-control-app-client",
     "version": "1.0.0",
-    "description": "A TODO list in React",
+    "description": "A remote controll client app in React",
     "scripts": {
         "watch": "node_modules/webpack/bin/webpack.js --progress --colors --watch",
         "build": "node_modules/webpack/bin/webpack.js",

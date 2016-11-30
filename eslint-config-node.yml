@@ -1,0 +1,87 @@
+parserOptions: 
+  ecmaVersion: 6
+
+env:
+  es6: true
+  node: true
+  mocha: true
+  builtin: true
+
+rules: 
+  block-scoped-var: error
+  camelcase: error
+  comma-dangle:
+    - warn
+    - always-multiline
+  comma-style:
+    - error
+    - last
+  curly:
+    - error
+    - all
+  dot-notation:
+    - off
+    - {allowKeywords: true}
+  eqeqeq:
+    - warn
+    - allow-null
+  guard-for-in: off
+  max-depth:
+    - error
+    - 10
+  max-len:
+    - error
+    - 120
+  max-params:
+    - error
+    - 10
+  max-statements:
+    - error
+    - 100
+  new-cap: off
+  no-bitwise:
+    - error
+    - allow:
+      - "~"
+  no-caller: error
+  no-cond-assign:
+    - error
+    - except-parens
+  no-debugger: error
+  no-empty:
+    - warn
+    - allowEmptyCatch: true
+  no-eval: error
+  no-extend-native: error
+  no-extra-parens: warn
+  no-irregular-whitespace: error
+  no-iterator: error
+  no-loop-func: error
+  no-mixed-spaces-and-tabs:
+    - error
+    - smart-tabs
+  no-multi-str: error
+  no-new: error
+  no-plusplus: off
+  no-proto: error
+  no-script-url: error
+  no-sequences: error
+  no-shadow: off
+  no-undef: error
+  no-unused-expressions: off
+  no-unused-vars:
+    - error
+    - vars: local
+      args: none
+  no-with: error
+  quotes:
+    - warn
+    - backtick
+  semi:
+    - warn
+    - always
+  valid-typeof: error
+  wrap-iife: off
+  keyword-spacing:
+    - error
+    - before: true
