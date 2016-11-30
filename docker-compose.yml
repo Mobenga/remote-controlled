@@ -4,12 +4,13 @@ services:
   todo:
     image: todo-app
     ports:
-     - 4000:4000
+      - 8080:4000
+
 
   websocket-server:
     image: websocket-server
     ports:
-     - 8080:8080
+      - 8090:8080
 
   redis:
     image: redis

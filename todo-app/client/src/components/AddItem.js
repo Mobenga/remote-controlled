@@ -1,5 +1,5 @@
 import React from "react";
-import {send} from "../messageBus";
+import {publish} from "../messageBus";
 
 const style = {
     fontSize: 16,
@@ -25,7 +25,7 @@ class AddItem extends React.Component {
         if (!this.state.text) {
             return;
         }
-        send(`ADD`, this.state.text);
+        publish(`ADD`, this.state.text);
         this.setState({
             text: ``,
         });

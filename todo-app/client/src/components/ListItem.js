@@ -1,5 +1,5 @@
 import React from "react";
-import {send} from "../messageBus";
+import {publish} from "../messageBus";
 
 const textStyle = {
     cursor: `pointer`,
@@ -32,10 +32,10 @@ class ListItem extends React.Component {
         });
     }
     toggleChecked() {
-        send(`TOGGLE`, this.props.data.index);
+        publish(`TOGGLE`, this.props.data.index);
     }
     deleteItem() {
-        send(`DELETE`, this.props.data.index);
+        publish(`DELETE`, this.props.data.index);
     }
     renderCheckbox() {
         if (this.props.data.checked) {
