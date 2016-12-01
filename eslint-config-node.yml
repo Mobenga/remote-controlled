@@ -10,9 +10,6 @@ env:
 rules: 
   block-scoped-var: error
   camelcase: error
-  comma-dangle:
-    - warn
-    - always-multiline
   comma-style:
     - error
     - last

@@ -10,6 +10,8 @@ services:
     image: remote-control-app
     ports:
       - 8110:4000
+    environment:
+      REMOTE_CONTROL_SERVER_BASE_URL: http://remote-control-server:8100
 
   websocket-server:
     image: websocket-server

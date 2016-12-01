@@ -103,7 +103,7 @@ function publish(event, data) {
     };
 
     var callSubscriber = function (subscription) {
-        if(subscription.isDisposed) {
+        if (subscription.isDisposed) {
             return;
         }
         subscription.callback(data);

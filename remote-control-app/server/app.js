@@ -1,11 +1,15 @@
-const port = process.env["SERVER_PORT"] || 4000;
-const path = require("path");
+const port = process.env[`SERVER_PORT`] || 4000;
+const path = require(`path`);
 
-const express = require("express");
+const express = require(`express`);
 const app = express();
 
-app.use(express.static(path.join(__dirname, "../client/public")));
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(`/css`, express.static(path.join(__dirname, `../client/public/css`)));
+app.use(`/fonts`, express.static(path.join(__dirname, `../client/public/fonts`)));
+app.use(`/js`, express.static(path.join(__dirname, `../client/build`)));
+app.get(`/*`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../client/public/index.html`));
+});
 
 app.listen(port, err => {
     if (err) {
