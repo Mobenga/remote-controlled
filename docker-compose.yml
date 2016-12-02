@@ -9,7 +9,7 @@ services:
   remote-control-app:
     image: remote-control-app
     ports:
-      - 8110:4000
+      - 8110:5000
     environment:
       REMOTE_CONTROL_SERVER_BASE_URL: http://remote-control-server:8100
 

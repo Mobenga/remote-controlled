@@ -1,4 +1,4 @@
-const port = process.env[`SERVER_PORT`] || 4000;
+const port = process.env[`SERVER_PORT`] || 5000;
 const path = require(`path`);
 
 const express = require(`express`);

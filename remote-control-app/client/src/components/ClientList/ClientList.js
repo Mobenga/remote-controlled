@@ -13,11 +13,14 @@ class ClientList extends React.Component {
     componentWillUnmount() {
         this.subscription.dispose();
     }
-
+    ping(clientId) {
+        fetch(`http://localhost:8100/ping/${clientId}`);
+    }
     renderElement(client) {
         return (
             <li key={client.id}>
                 <Link to={`/client/${client.id}`}>{client.id}</Link>
+                <button style={{marginLeft:20}} onClick={() => this.ping(client.id)}>Ping client</button>
             </li>
         );
     }

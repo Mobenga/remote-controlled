@@ -82,6 +82,7 @@ function registerRoutes(router) {
         return handleRequest(`DELETE`, res.json.bind(res), req.params.id, {value: parseInt(req.params.index, 10)});
     });
     router.post(`/add/:id`, (req, res) => handleRequest(`ADD`, res.json.bind(res), req.params.id, req.body));
+    router.get(`/ping/:id`, (req, res) => handleRequest(`PING`, res.json.bind(res), req.params.id));
 }
 
 
