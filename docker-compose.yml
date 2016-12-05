@@ -3,11 +3,13 @@ version: '2'
 services:
   todo:
     image: todo-app
+    container_name: todo
     ports:
       - 8080:4000
 
   remote-control-app:
     image: remote-control-app
+    container_name: remote-control-app
     ports:
       - 8110:5000
     environment:
@@ -15,6 +17,7 @@ services:
 
   websocket-server:
     image: websocket-server
+    container_name: websocket-server
     depends_on:
       - redis
     ports:
@@ -27,9 +30,9 @@ services:
     ports:
      - 6379:6379
 
-
   remote-control-server:
     image: remote-control-server
+    container_name: remote-control-server
     depends_on:
       - redis
     ports:
