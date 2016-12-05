@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {publish, subscribe} from "./messageBus";
+import {publish, subscribe} from "./channel";
 import App from "./components/App";
 import {connect} from "./remoteControl";
 

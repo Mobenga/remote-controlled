@@ -1,9 +1,9 @@
 version: '2'
 
 services:
-  todo:
+  todo-app:
     image: todo-app
-    container_name: todo
+    container_name: todo-app
     ports:
       - 8080:4000
 

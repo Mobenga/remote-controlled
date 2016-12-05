@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./TodoList";
+import AddItem from "./AddItem";
 
 
 const appStyle = {
@@ -32,8 +33,16 @@ class App extends React.Component {
                 <div className="container">
                     <div style={appStyle}>
                         <TodoList list={this.props.list}/>
+                        <AddItem/>
                     </div>
                 </div>
+                <nav className="navbar navbar-default navbar-fixed-bottom">
+                    <h5 style={{
+                        textAlign: `right`,
+                        marginRight: 20,
+                        marginTop: 15,
+                    }}>A Playtech Sports&copy; product</h5>
+                </nav>
             </div>
         );
     }

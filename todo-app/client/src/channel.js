@@ -11,7 +11,7 @@ function subscribe(cb) {
         },
     };
 }
-
+// Controller
 function publish(name, value) {
     subscribers.forEach(cb => cb(name, value));
 }

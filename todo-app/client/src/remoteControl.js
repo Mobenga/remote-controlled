@@ -1,4 +1,4 @@
-import {publish} from "./messageBus";
+import {publish} from "./channel";
 import {get as getTodoList} from "./todoList";
 
 let stompClient = null;

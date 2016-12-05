@@ -1,5 +1,5 @@
 import React from "react";
-import {publish} from "../messageBus";
+import {publish} from "../channel";
 
 const textStyle = {
     cursor: `pointer`,
