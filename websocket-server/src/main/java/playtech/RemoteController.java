@@ -17,7 +17,7 @@ public class RemoteController {
         session.connectToRcServer(header);
     }
 
-    @MessageMapping("/send")
+    @MessageMapping("/respond")
     public void sendRemote(String body) {
         session.sendToRcServer(body);
     }

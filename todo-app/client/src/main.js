@@ -31,10 +31,6 @@ subscribe((name, value) => {
             isConnected = true;
             render();
             break;
-        case `DISCONNECTED`:
-            isConnected = false;
-            render();
-            break;
         case `PING`:
             flashBackground();
             break;
