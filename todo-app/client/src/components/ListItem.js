@@ -1,5 +1,5 @@
 import React from "react";
-import {publish} from "../channel";
+import {toggleCheckbox, deleteItem} from "../model";
 
 const textStyle = {
     cursor: `pointer`,
@@ -31,12 +31,6 @@ class ListItem extends React.Component {
             hover: false,
         });
     }
-    toggleChecked() {
-        publish(`TOGGLE`, this.props.data.index);
-    }
-    deleteItem() {
-        publish(`DELETE`, this.props.data.index);
-    }
     renderCheckbox() {
         if (this.props.data.checked) {
             return <span style={checkboxStyle} className="glyphicon glyphicon-ok" />;
@@ -47,7 +41,7 @@ class ListItem extends React.Component {
     renderDeleteIcon() {
         return <span
                 style={deleteIconStyle}
-                onClick={this.deleteItem.bind(this)}
+                onClick={() => deleteItem(this.props.data.index)}
                 className="glyphicon glyphicon-ban-circle"/>;
     }
     render() {
@@ -55,7 +49,10 @@ class ListItem extends React.Component {
             <div className="row"> 
                 <div className="col-xs-10">
                     {this.renderCheckbox()}
-                    <a style={textStyle} onClick={this.toggleChecked.bind(this)}>{this.props.data.text}</a>
+                    <a style={textStyle}
+                        onClick={() => {
+                            toggleCheckbox(this.props.data.index);
+                        }}>{this.props.data.text}</a>
                 </div>
                 <div className="col-xs-2">
                     {this.renderDeleteIcon()}
