@@ -1,7 +1,7 @@
 import React from "react";
 import {Router, Route, browserHistory} from "react-router";
-import ClientList from "./ClientList/ClientList";
-import Client from "./Client/Client";
+import ClientList from "./ClientList";
+import Client from "./Client";
 
 
 class App extends React.Component {

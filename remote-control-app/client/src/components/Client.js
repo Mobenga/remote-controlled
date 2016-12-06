@@ -1,5 +1,5 @@
 import React from "react";
-import {getTodoList, toggleItem, deleteItem} from "./clientModel";
+import {getTodoList, toggleItem, deleteItem} from "../clientModel";
 
 class Client extends React.Component {
     constructor() {

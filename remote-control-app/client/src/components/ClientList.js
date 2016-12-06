@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router";
-import {subscribe, get} from "./clientListModel";
+import {subscribe, get} from "../clientListModel";
 
 class ClientList extends React.Component {
     constructor() {
