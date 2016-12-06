@@ -1,5 +1,5 @@
 import React from "react";
-import {publish} from "../channel";
+import {addItem} from "../model";
 
 const style = {
     fontSize: 16,
@@ -21,11 +21,11 @@ class AddItem extends React.Component {
             text: ``,
         };
     }
-    addItem() {
+    addTodoItem() {
         if (!this.state.text) {
             return;
         }
-        publish(`ADD`, this.state.text);
+        addItem(this.state.text);
         this.setState({
             text: ``,
         });
@@ -37,7 +37,7 @@ class AddItem extends React.Component {
     }
     keyUp(e) {
         if (e.keyCode === 13) { //Enter
-            this.addItem();
+            this.addTodoItem();
         }
     }
     render() {
@@ -53,7 +53,7 @@ class AddItem extends React.Component {
                     <button
                         style={buttonStyle}
                         disabled={!this.state.text}
-                        onClick={this.addItem.bind(this)}>Add item</button>
+                        onClick={() => this.addTodoItem()}>Add item</button>
                 </div>
             </div>
         );
