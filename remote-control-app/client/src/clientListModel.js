@@ -41,7 +41,7 @@ function publish() {
     callbacks.forEach(cb => cb(list));
 }
 
-function get() {
+function getList() {
     return list;
 }
 
@@ -57,4 +57,4 @@ function fetchClientList() {
 }
 
 
-export {get, subscribe};
+export {getList, subscribe};
