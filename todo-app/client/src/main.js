@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import {connect} from "./remoteControl";
+import {connect} from "./remoteControlClient";
 
 import * as model from "./model";
 
