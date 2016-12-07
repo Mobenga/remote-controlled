@@ -8,7 +8,7 @@
     "clean": "rm -rf node_modules && rm -f .eslintrc",
     "install": "cp ../../eslint-config-react.yml .eslintrc"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

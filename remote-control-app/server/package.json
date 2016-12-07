@@ -7,7 +7,7 @@
         "clean": "rm -rf node_modules && rm -f .eslintrc",
         "install": "cp ../../eslint-config-node.yml .eslintrc"
     },
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "express": "^4.14.0"
     }

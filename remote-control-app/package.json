@@ -8,6 +8,6 @@
     "build-server": "cd server && npm install --production",
     "build-client": "cd client && npm install && npm run build"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {}
 }
