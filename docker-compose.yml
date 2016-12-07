@@ -5,13 +5,13 @@ services:
     image: todo-app
     container_name: todo-app
     ports:
-      - 8080:4000
+      - 4000:4000
 
   remote-control-app:
     image: remote-control-app
     container_name: remote-control-app
     ports:
-      - 8110:5000
+      - 5000:5000
     environment:
       REMOTE_CONTROL_SERVER_BASE_URL: http://remote-control-server:8100
 
@@ -21,7 +21,7 @@ services:
     depends_on:
       - redis
     ports:
-      - 8090:8080
+      - 8090:8090
     environment:
       REDIS_HOST: redis:6379
 
