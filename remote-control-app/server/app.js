@@ -7,6 +7,7 @@ const app = express();
 app.use(`/css`, express.static(path.join(__dirname, `../client/public/css`)));
 app.use(`/fonts`, express.static(path.join(__dirname, `../client/public/fonts`)));
 app.use(`/js`, express.static(path.join(__dirname, `../client/build`)));
+app.use(`/js`, express.static(path.join(__dirname, `../client/public/js`)));
 app.get(`/*`, (req, res) => {
     res.sendFile(path.join(__dirname, `../client/public/index.html`));
 });
