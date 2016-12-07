@@ -13,7 +13,7 @@
     "lint": "node_modules/jshint/bin/jshint `find . -name \"*.js\" -not -path \"*node_modules*\"`"
   },
   "author": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
