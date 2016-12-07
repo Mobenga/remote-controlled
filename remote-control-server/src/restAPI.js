@@ -62,10 +62,10 @@ function registerRoutes(router) {
         handleRequest(`LIST`, res.json.bind(res), req.params.id);
     });
     router.get(`/toggle/:id/:index`, (req, res) => {
-        handleRequest(`TOGGLE`, res.json.bind(res), req.params.id, {value: req.params.index});
+        handleRequest(`TOGGLE`, res.json.bind(res), req.params.id, {value: parseInt(req.params.index, 10)});
     });
     router.get(`/delete/:id/:index`, (req, res) => {
-        handleRequest(`DELETE`, res.json.bind(res), req.params.id, {value: req.params.index});
+        handleRequest(`DELETE`, res.json.bind(res), req.params.id, {value: parseInt(req.params.index, 10)});
     });
     router.post(`/add/:id`, (req, res) => {
         handleRequest(`ADD`, res.json.bind(res), req.params.id, req.body);
