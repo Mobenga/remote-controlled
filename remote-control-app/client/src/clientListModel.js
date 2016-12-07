@@ -3,6 +3,7 @@ const callbacks = [];
 let isSubscribing = false;
 let intervalId;
 
+const baseUrl = `${document.location.href.split(/:\d/)[0]}:8100`;
 
 function subscribe(cb) {
     if (!isSubscribing) {
@@ -47,7 +48,7 @@ function getList() {
 
 function fetchClientList() {
     return new Promise((resolve, reject) => {
-        fetch(`http://localhost:8100/list-clients`)
+        fetch(`${baseUrl}/list-clients`)
             .then(response => {
                 return response.json();
             })

@@ -1,7 +1,8 @@
+const baseUrl = `${document.location.href.split(/:\d/)[0]}:8100`;
 
 function getTodoList(clientId) {
     return new Promise((resolve, reject) => {
-        fetch(`http://localhost:8100/get-list/${clientId}`)
+        fetch(`${baseUrl}/get-list/${clientId}`)
             .then(response => {
                 return response.json();
             })
@@ -12,7 +13,7 @@ function getTodoList(clientId) {
 
 function toggleItem(clientId, item) {
     return new Promise((resolve, reject) => {
-        fetch(`http://localhost:8100/toggle/${clientId}/${item.index}`)
+        fetch(`${baseUrl}/toggle/${clientId}/${item.index}`)
             .then(response => {
                 return response.json();
             })
@@ -23,7 +24,7 @@ function toggleItem(clientId, item) {
 
 function deleteItem(clientId, item) {
     return new Promise((resolve, reject) => {
-        fetch(`http://localhost:8100/delete/${clientId}/${item.index}`)
+        fetch(`${baseUrl}/delete/${clientId}/${item.index}`)
             .then(response => {
                 return response.json();
             })
@@ -34,7 +35,7 @@ function deleteItem(clientId, item) {
 
 function addItem(clientId, text) {
     return new Promise((resolve, reject) => {
-        fetch(`http://localhost:8100/add/${clientId}`, {
+        fetch(`${baseUrl}/add/${clientId}`, {
             method: `POST`,
             headers: {
                 Accept: `application/json`,
@@ -50,7 +51,7 @@ function addItem(clientId, text) {
 }
 
 function pingClient(clientId) {
-    fetch(`http://localhost:8100/ping/${clientId}`);
+    fetch(`${baseUrl}/ping/${clientId}`);
 }
 
 export {getTodoList, toggleItem, deleteItem, addItem, pingClient};
