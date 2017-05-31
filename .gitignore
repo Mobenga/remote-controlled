@@ -40,8 +40,4 @@ build
 classes
 .idea
 .gradle
-gradle
-gradlew
-gradlew.bat
-
 .eslintrc
