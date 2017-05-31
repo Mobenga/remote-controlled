@@ -1,7 +1,7 @@
 node {
     stage('Build') {
         dir('websocket-server') {
-            sh 'pwd'
+            sh 'ls'
             sh './gradlew build -x test'
             stash name: "jar", includes: "build/libs/websocket-server-1.0.jar"
         }
