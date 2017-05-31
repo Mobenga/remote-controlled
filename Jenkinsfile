@@ -1,7 +1,8 @@
 node {
+    checkout scm
     stage('Build') {
         dir('websocket-server') {
-            sh 'cat websocket-server/Dockerfile'
+            sh 'cat Dockerfile'
             sh './gradlew build -x test'
             stash name: "jar", includes: "build/libs/websocket-server-1.0.jar"
         }
