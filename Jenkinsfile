@@ -1,7 +1,7 @@
 node {
     stage('Build') {
         dir('websocket-server') {
-            sh 'ls'
+            sh 'cat Dockerfile'
             sh './gradlew build -x test'
             stash name: "jar", includes: "build/libs/websocket-server-1.0.jar"
         }
