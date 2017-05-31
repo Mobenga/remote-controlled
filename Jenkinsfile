@@ -1,4 +1,4 @@
-node('maven') {
+node {
     dir('websocket-server') {
         stages {
             stage('Build') {
