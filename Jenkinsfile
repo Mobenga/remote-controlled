@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'websocket-server/gradlew -p websocket-server build'
+                dir 'websocket-server'
+                sh './gradlew build'
             }
         }
     }
