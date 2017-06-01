@@ -5,8 +5,7 @@
   "scripts": {
     "watch": "node_modules/webpack/bin/webpack.js --progress --colors --watch",
     "build": "node_modules/webpack/bin/webpack.js",
-    "clean": "rm -rf node_modules && rm -f .eslintrc",
-    "install": "cp ../../eslint-config-react.yml .eslintrc"
+    "clean": "rm -rf node_modules && rm -f .eslintrc"
   },
   "license": "MIT",
   "dependencies": {

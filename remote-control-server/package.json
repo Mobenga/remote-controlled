@@ -8,7 +8,6 @@
     "start": "node src/app.js",
     "clean": "rm -rf node_modules && rm -f .eslintrc",
     "build": "npm install --production",
-    "install": "cp ../eslint-config-node.yml .eslintrc",
     "mocha": "node_modules/mocha/bin/mocha `find . -name \"*spec.js\" -not -path \"*node_modules*\"`",
     "lint": "node_modules/jshint/bin/jshint `find . -name \"*.js\" -not -path \"*node_modules*\"`"
   },
