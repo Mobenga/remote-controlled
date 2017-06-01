@@ -4,7 +4,7 @@
     "description": "A TODO list in React",
     "scripts": {
         "watch": "node_modules/webpack/bin/webpack.js --progress --colors --watch",
-        "install": "node_modules/webpack/bin/webpack.js",
+        "build": "node_modules/webpack/bin/webpack.js",
         "clean": "rm -rf node_modules && rm -f .eslintrc"
     },
     "license": "MIT",
