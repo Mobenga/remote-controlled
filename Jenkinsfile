@@ -3,7 +3,6 @@ parallel node('nodejs') {
     checkout scm
 
     stage 'Build Image Todo App'
-    unstash name: 'jar'
     sh 'oc start-build todo-app-image --from-dir=todo-app --follow'
 
     stage 'Deploy Todo App'
@@ -19,13 +18,11 @@ node('maven') {
     dir('websocket-server') {
         stage 'Build Websocket Server'
         sh './gradlew build -x test'
-        stash name: 'jar', includes: 'build/libs/websocket-server-1.0.jar'
 
         stage 'Test Websocket Server'
         sh './gradlew test'
 
         stage 'Build Image Websocket Server'
-        unstash name: 'jar'
         sh 'oc start-build websocket-server-image --from-file=build/libs/websocket-server-1.0.jar --follow'
 
         stage 'Deploy Websocket Server'
