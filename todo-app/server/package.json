@@ -4,8 +4,7 @@
     "description": "",
     "scripts": {
         "start": "node app.js",
-        "clean": "rm -rf node_modules && rm -f .eslintrc",
-        "install": "cp ../../eslint-config-node.yml .eslintrc"
+        "clean": "rm -rf node_modules && rm -f .eslintrc"
     },
     "license": "MIT",
     "dependencies": {

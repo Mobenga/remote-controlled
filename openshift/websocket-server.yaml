@@ -3,20 +3,6 @@ kind: List
 metadata: {}
 items:
 - apiVersion: v1
-  kind: BuildConfig
-  metadata:
-    name: websocket-server-pipeline
-  spec:
-    source:
-      type: Git
-      git:
-        ref: pipeline
-        uri: https://github.com/Mobenga/remote-controlled.git
-    strategy:
-      type: JenkinsPipeline
-      jenkinsPipelineStrategy:
-        jenkinsfilePath: Jenkinsfile
-- apiVersion: v1
   kind: ImageStream
   metadata:
     name: websocket-server
@@ -25,12 +11,6 @@ items:
   spec:
     tags:
     - name: latest
-- apiVersion: v1
-  kind: ImageStream
-  metadata:
-    name: redhat-openjdk18-openshift
-  spec:
-    dockerImageRepository: registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 - apiVersion: v1
   kind: BuildConfig
   metadata:
@@ -47,6 +27,7 @@ items:
         from:
           kind: ImageStreamTag
           name: redhat-openjdk18-openshift:1.0
+        incremental: true
       type: Source
     triggers:
     - type: ConfigChange
@@ -117,4 +98,3 @@ items:
     to:
       kind: Service
       name: websocket-server
-      weight: 100
