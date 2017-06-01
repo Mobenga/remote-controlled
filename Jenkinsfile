@@ -18,7 +18,15 @@ node('maven') {
             openshiftVerifyDeployment depCfg: 'websocket-server', replicaCount: 1, verifyReplicaCount: true
         }
         stage('System Test') {
-            sh "curl -s http://websocket-server:8080/todo-websocket"
+            sh "curl -s http://websocket-server:8090/todo-websocket"
+        }
+    }
+}
+node('node') {
+    checkout scm
+    dir('todo-app') {
+        stage('Build Todo App') {
+            sh 'npm run build'
         }
     }
 }
