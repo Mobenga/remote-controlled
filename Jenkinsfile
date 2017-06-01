@@ -2,7 +2,7 @@ node('maven') {
     checkout scm
     dir('todo-app') {
         stage('Build Todo App') {
-            withEnv(["PATH+NODE=${tool name: 'node-6.9.1', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin"]) {
+            docker.image('node').inside {
                 sh 'node -v'
                 sh 'npm run build'
             }
