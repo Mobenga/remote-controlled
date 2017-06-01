@@ -1,13 +1,5 @@
 node('maven') {
     checkout scm
-    dir('todo-app') {
-        stage('Build Todo App') {
-            docker.image('node').inside {
-                sh 'node -v'
-                sh 'npm run build'
-            }
-        }
-    }
     dir('websocket-server') {
         stage('Build') {
             sh './gradlew build -x test'
@@ -27,6 +19,16 @@ node('maven') {
         }
         stage('System Test') {
             sh "curl -s http://websocket-server:8090/todo-websocket"
+        }
+    }
+}
+
+node('nodejs') {
+    checkout scm
+    dir('todo-app') {
+        stage('Build Todo App') {
+            sh 'node -v'
+            sh 'npm run build'
         }
     }
 }
