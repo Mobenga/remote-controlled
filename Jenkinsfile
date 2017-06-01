@@ -18,7 +18,7 @@ node('maven') {
             openshiftVerifyDeployment depCfg: 'websocket-server', replicaCount: 1, verifyReplicaCount: true
         }
         stage('System Test') {
-            sh "curl -s http://websocket-server:8080/api/info"
+            sh "curl -s http://websocket-server:8080/todo-websocket"
         }
     }
 }
