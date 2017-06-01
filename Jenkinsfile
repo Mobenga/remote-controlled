@@ -1,3 +1,13 @@
+node('nodejs') {
+    checkout scm
+    dir('todo-app') {
+        stage('Build Todo App') {
+            sh 'node -v'
+            sh 'npm run build'
+        }
+    }
+}
+
 node('maven') {
     checkout scm
     dir('websocket-server') {
@@ -19,16 +29,6 @@ node('maven') {
         }
         stage('System Test') {
             sh "curl -s http://websocket-server:8090/todo-websocket"
-        }
-    }
-}
-
-node('nodejs') {
-    checkout scm
-    dir('todo-app') {
-        stage('Build Todo App') {
-            sh 'node -v'
-            sh 'npm run build'
         }
     }
 }
