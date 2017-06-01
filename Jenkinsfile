@@ -1,4 +1,4 @@
-parallel node('nodejs') {
+node('nodejs') {
     stage 'Clone repository'
     checkout scm
 
