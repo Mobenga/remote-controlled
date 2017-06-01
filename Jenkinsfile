@@ -7,7 +7,7 @@ node('nodejs') {
         }
         stage('Build Image') {
              echo "building with Dockerfile"
-             sh "oc start-build todo-app --from-file=Dockerfile --follow"
+             sh "oc start-build --from-file=Dockerfile --follow"
         }
         stage('Deploy') {
              echo "Deploying..."
