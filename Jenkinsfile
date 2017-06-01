@@ -16,14 +16,14 @@ parallel(
                 }
 
                 stage('Build Image Remote Control Server') {
-                    sh 'oc start-build todo-app-image --from-dir=todo-app --follow'
+                    sh 'oc start-build remote-control-server-image --from-dir=remote-control-server --follow'
                 }
                 stage('Deploy Remote Control Server') {
-                    openshiftDeploy depCfg: 'todo-app'
-                    openshiftVerifyDeployment depCfg: 'todo-app', replicaCount: 1, verifyReplicaCount: true
+                    openshiftDeploy depCfg: 'remote-control-server'
+                    openshiftVerifyDeployment depCfg: 'remote-control-server', replicaCount: 1, verifyReplicaCount: true
                 }
                 stage('System Test Remote Control Server') {
-                    sh 'curl -s http://todo-app:4000/'
+                    sh 'curl -s http://remote-control-server:8100/'
                 }
             }
         }

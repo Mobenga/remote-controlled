@@ -59,6 +59,9 @@ items:
           - containerPort: 8090
             name: http
             protocol: TCP
+          env:
+          - name: REDIS_HOST
+            value: redis:6379
           readinessProbe:
             httpGet:
               path: /todo-websocket
