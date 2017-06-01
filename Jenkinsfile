@@ -5,6 +5,13 @@ node('nodejs') {
             sh 'node -v'
             sh 'npm run build'
         }
+        stage('Build Image') {
+             echo "building with Dockerfile"
+             sh "oc start-build todo-app --from-file=todo-app/Dockerfile --follow"
+        }
+        stage('Deploy') {
+             echo "Deploying..."
+        }
     }
 }
 
@@ -22,6 +29,7 @@ node('maven') {
         stage('Build Image') {
             unstash name: "jar"
             sh "oc start-build websocket-server-image --from-file=build/libs/websocket-server-1.0.jar --follow"
+
         }
         stage('Deploy') {
             openshiftDeploy depCfg: 'websocket-server'
