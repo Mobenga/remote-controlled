@@ -1,4 +1,4 @@
-node {
+node('maven') {
     checkout scm
     stage('Build') {
         dir('websocket-server') {
