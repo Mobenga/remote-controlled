@@ -62,10 +62,6 @@ items:
           env:
           - name: REDIS_HOST
             value: redis:6379
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8100
         dnsPolicy: ClusterFirst
     triggers:
     - imageChangeParams:

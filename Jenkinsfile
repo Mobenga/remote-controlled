@@ -2,13 +2,21 @@ node('maven') {
     stage('Clone repository') {
         checkout scm
     }
+
+    stage('Configure Openshift') {
+        sh 'oc apply -f openshift/image-streams.yml'
+    }
+
     stage('Build Image Todo App') {
+        sh 'apply -f openshift/todo-app.yml'
         sh 'oc start-build todo-app-image --from-dir=todo-app --follow'
     }
     stage('Build Image Remote Control Server') {
+        sh 'apply -f openshift/remote-control-server.yml'
         sh 'oc start-build remote-control-server-image --from-dir=remote-control-server --follow'
     }
     stage('Build Image Remote Control App') {
+        sh 'apply -f openshift/remote-control-app.yml'
         sh 'oc start-build remote-control-app-image --from-dir=remote-control-app --follow'
     }
     dir('websocket-server') {
@@ -19,16 +27,14 @@ node('maven') {
             sh './gradlew test'
         }
         stage('Build Image Websocket Server') {
+            sh 'apply -f ../openshift/remote-control-app.yml'
             sh 'oc start-build websocket-server-image --from-file=build/libs/websocket-server-1.0.jar --follow'
         }
     }
 
-//    TODO: use yml files
-//    stage('Deploy Redis') {
-//        openshiftDeploy depCfg: 'redis'
-//        openshiftVerifyDeployment depCfg: 'redis', replicaCount: 1, verifyReplicaCount: true
-//    }
-
+    stage('Deploy Redis') {
+      sh 'apply -f openshift/redis.yml'
+    }
 
     stage('Deploy Todo App') {
         openshiftDeploy depCfg: 'todo-app'
