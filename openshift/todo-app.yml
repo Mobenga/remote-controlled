@@ -55,14 +55,17 @@ items:
         - name: todo-app
           image: todo-app
           imagePullPolicy: Always
+          env:
+          - name: WEBSOCKET_SERVER_BASE_URL
+            value: http://websocket-server-mobenga.bgv-lddocker001.pt.playtech.corp
           ports:
           - containerPort: 4000
             name: http
             protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 4000
+#          readinessProbe:
+#            httpGet:
+#              path: /
+#              port: 4000
         dnsPolicy: ClusterFirst
     triggers:
     - imageChangeParams:
