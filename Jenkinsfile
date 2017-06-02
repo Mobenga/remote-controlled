@@ -23,10 +23,11 @@ node('maven') {
         }
     }
 
-    stage('Deploy Redis') {
-        openshiftDeploy depCfg: 'redis'
-        openshiftVerifyDeployment depCfg: 'redis', replicaCount: 1, verifyReplicaCount: true
-    }
+//    TODO: use yml files
+//    stage('Deploy Redis') {
+//        openshiftDeploy depCfg: 'redis'
+//        openshiftVerifyDeployment depCfg: 'redis', replicaCount: 1, verifyReplicaCount: true
+//    }
 
 
     stage('Deploy Todo App') {
