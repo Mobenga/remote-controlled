@@ -1,15 +1,18 @@
 import * as model from "./model";
 
 let stompClient = null;
-const baseUrl = `${document.location.href.split(/:\d/)[0]}:8090`;
-
 function connect() {
-    var socket = new SockJS(`${baseUrl}/todo-websocket`);
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, () => {
-        model.setConnected();
-        stompClient.subscribe(`/user/register`, callback);
-    });
+    fetch(`/websocketServerUrl`)
+        .then(r => r.text())
+        .then(baseUrl => {
+
+            const socket = new SockJS(`${baseUrl}/todo-websocket`);
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, () => {
+                model.setConnected();
+                stompClient.subscribe(`/user/register`, callback);
+            });
+        });
 }
 
 function callback(data) {

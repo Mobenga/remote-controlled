@@ -22,7 +22,7 @@ function subscribe(cb) {
 }
 
 function startSubscibing() {
-    fetch(`/serverUrl`)
+    fetch(`/remoteControlServerUrl`)
         .then(r => r.text())
         .then(baseUrl => {
             isSubscribing = true;

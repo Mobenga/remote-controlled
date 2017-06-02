@@ -9,7 +9,7 @@ app.use(`/css`, express.static(path.join(__dirname, `../client/public/css`)));
 app.use(`/fonts`, express.static(path.join(__dirname, `../client/public/fonts`)));
 app.use(`/js`, express.static(path.join(__dirname, `../client/build`)));
 app.use(`/js`, express.static(path.join(__dirname, `../client/public/js`)));
-app.get(`/serverUrl`, (req, res) => {
+app.get(`/remoteControlServerUrl`, (req, res) => {
     res.send(remoteControlServerUrl);
 });
 app.get(`/*`, (req, res) => {
