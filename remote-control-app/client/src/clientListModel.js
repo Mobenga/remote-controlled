@@ -3,8 +3,6 @@ const callbacks = [];
 let isSubscribing = false;
 let intervalId;
 
-const baseUrl = `${document.location.href.split(/:\d/)[0]}:8100`;
-
 function subscribe(cb) {
     if (!isSubscribing) {
         startSubscibing();
@@ -24,13 +22,17 @@ function subscribe(cb) {
 }
 
 function startSubscibing() {
-    isSubscribing = true;
-    intervalId = setInterval(() => {
-        fetchClientList().then(newList => {
-            list = newList;
-            publish();
-        }).catch(console.error.bind(console));
-    }, 500);
+    fetch(`/serverUrl`)
+        .then(r => r.text())
+        .then(baseUrl => {
+            isSubscribing = true;
+            intervalId = setInterval(() => {
+                fetchClientList(baseUrl).then(newList => {
+                    list = newList;
+                    publish();
+                }).catch(console.error.bind(console));
+            }, 500);
+        });
 }
 
 function stopSubscribing() {
@@ -46,7 +48,7 @@ function getList() {
     return list;
 }
 
-function fetchClientList() {
+function fetchClientList(baseUrl) {
     return new Promise((resolve, reject) => {
         fetch(`${baseUrl}/list-clients`)
             .then(response => {

@@ -57,7 +57,7 @@ items:
           imagePullPolicy: Always
           env:
           - name: REMOTE_CONTROL_SERVER_BASE_URL
-            value: http://remote-control-server:8100
+            value: http://remote-control-server-mobenga.bgv-lddocker001.pt.playtech.corp
           ports:
           - containerPort: 5000
             name: http
