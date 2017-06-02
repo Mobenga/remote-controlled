@@ -61,7 +61,9 @@ items:
             protocol: TCP
           env:
           - name: REDIS_HOST
-            value: redis:6379
+            value: redis
+          - name: REDIS_PORT
+            value: 6379
         dnsPolicy: ClusterFirst
     triggers:
     - imageChangeParams:

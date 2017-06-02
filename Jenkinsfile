@@ -7,33 +7,33 @@ node('maven') {
         sh 'oc apply -f openshift/image-streams.yml'
     }
 
-    stage('Build Image Todo App') {
+    stage('Build Todo App') {
         sh 'oc apply -f openshift/todo-app.yml'
         sh 'oc start-build todo-app-image --from-dir=todo-app --follow'
     }
-    stage('Build Image Remote Control Server') {
+    stage('Build Remote Control Server') {
         sh 'oc apply -f openshift/remote-control-server.yml'
         sh 'oc start-build remote-control-server-image --from-dir=remote-control-server --follow'
     }
-    stage('Build Image Remote Control App') {
+    stage('Build Remote Control App') {
         sh 'oc apply -f openshift/remote-control-app.yml'
         sh 'oc start-build remote-control-app-image --from-dir=remote-control-app --follow'
     }
     dir('websocket-server') {
-        stage('Build Websocket Server') {
+        stage('Build Websocket Server: gradle') {
             sh './gradlew build -x test'
         }
         stage('Test Websocket Server') {
             sh './gradlew test'
         }
-        stage('Build Image Websocket Server') {
+        stage('Build Websocket Server: image') {
             sh 'oc apply -f ../openshift/remote-control-app.yml'
             sh 'oc start-build websocket-server-image --from-file=build/libs/websocket-server-1.0.jar --follow'
         }
     }
 
-    stage('Deploy Redis') {
-      sh 'oc apply -f openshift/redis.yml'
+    stage('Ensure Redis') {
+        sh 'oc apply -f openshift/redis.yml'
     }
 
     stage('Deploy Todo App') {
@@ -63,14 +63,11 @@ node('maven') {
     }
 
 
-
-    dir('websocket-server') {
-        stage('Deploy Websocket Server') {
-            openshiftDeploy depCfg: 'websocket-server'
-            openshiftVerifyDeployment depCfg: 'websocket-server', replicaCount: 1, verifyReplicaCount: true
-        }
-        stage('System Test Websocket Server') {
-            sh 'curl -s http://websocket-server:8090/todo-websocket'
-        }
+    stage('Deploy Websocket Server') {
+        openshiftDeploy depCfg: 'websocket-server'
+        openshiftVerifyDeployment depCfg: 'websocket-server', replicaCount: 1, verifyReplicaCount: true
+    }
+    stage('System Test Websocket Server') {
+        sh 'curl -s http://websocket-server:8090/todo-websocket'
     }
 }

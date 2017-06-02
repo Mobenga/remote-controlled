@@ -55,6 +55,9 @@ items:
         - name: remote-control-app
           image: remote-control-app
           imagePullPolicy: Always
+          env:
+          - name: REMOTE_CONTROL_SERVER_BASE_URL
+            value: http://remote-control-server:8100
           ports:
           - containerPort: 5000
             name: http
