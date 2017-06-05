@@ -27,7 +27,7 @@ node('maven') {
             sh './gradlew test'
         }
         stage('Build Websocket Server: image') {
-            sh 'oc apply -f ../openshift/remote-control-app.yml'
+            sh 'oc apply -f ../openshift/websocket-server.yml'
             sh 'oc start-build websocket-server-image --from-file=build/libs/websocket-server-1.0.jar --follow'
         }
     }
