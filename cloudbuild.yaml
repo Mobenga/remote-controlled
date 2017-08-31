@@ -6,4 +6,4 @@ steps:
   args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME_todo-app:$COMMIT_SHA', '.']
   dir: 'todo-app'
 images: 
-- 'gcr.io/$PROJECT_ID/$REPO_NAME_todo-app:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/$REPO_NAME-todo-app:$COMMIT_SHA'
