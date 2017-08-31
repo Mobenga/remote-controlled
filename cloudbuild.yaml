@@ -3,7 +3,7 @@ steps:
   dir: 'todo-app'
   args: ['run', 'install']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME_todo-app:$COMMIT_SHA', '.']
   dir: 'todo-app'
 images: 
-- 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/$REPO_NAME_todo-app:$COMMIT_SHA'
