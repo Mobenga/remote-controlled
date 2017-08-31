@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   dir: 'todo-app'
-  args: ['run', 'build']
+  args: ['run', 'install']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
   dir: 'todo-app'
