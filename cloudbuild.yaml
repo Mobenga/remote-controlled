@@ -3,7 +3,14 @@ steps:
   dir: 'todo-app'
   args: ['run', 'install']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME-todo-app:$COMMIT_SHA', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/remote-controlled/todo-app:$COMMIT_SHA', '.']
   dir: 'todo-app'
-images: 
-- 'gcr.io/$PROJECT_ID/$REPO_NAME-todo-app:$COMMIT_SHA'
+- name: 'gcr.io/cloud-builders/java/gradle'
+  dir: 'websocket-server'
+  args: ['build']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/remote-controlled/websocket-server:$COMMIT_SHA', '.']
+  dir: 'websocket-server'
+images:
+- 'gcr.io/$PROJECT_ID/remote-controlled/todo-app:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/remote-controlled/websocket-server:$COMMIT_SHA'
