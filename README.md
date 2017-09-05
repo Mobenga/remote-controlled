@@ -5,8 +5,6 @@ A remote controlled Todo application
 Install and run Docker
 
 ## Installation
-Will work great on Mac, and possibly on Linux. Windows? - maybe not so much...
-
 Build all artifacts and create docker images:
 `./build.sh`
 
